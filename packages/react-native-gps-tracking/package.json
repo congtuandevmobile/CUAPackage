@@ -1,0 +1,59 @@
+{
+  "name": "react-native-gps-tracking",
+  "version": "0.0.1-beta.1",
+  "description": "Own GPS tracking engine for React Native (Nitro module): native fix collection whose distance is decided by a shared Kotlin core.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "scripts": {
+    "codegen": "nitrogen",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "build:core": "bash ../../tool/build_core.sh"
+  },
+  "keywords": [
+    "react-native",
+    "nitro",
+    "gps",
+    "tracking",
+    "location"
+  ],
+  "files": [
+    "src",
+    "nitrogen",
+    "nitro.json",
+    "android/build.gradle",
+    "android/fix-prefab.gradle",
+    "android/gradle.properties",
+    "android/CMakeLists.txt",
+    "android/src",
+    "tracking-core/src/commonMain",
+    "ios/**/*.h",
+    "ios/**/*.m",
+    "ios/**/*.mm",
+    "ios/**/*.swift",
+    "ios/Frameworks",
+    "*.podspec",
+    "README.md"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-nitro-modules": ">=0.37.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^19.1.0",
+    "jest": "^29.7.0",
+    "nitrogen": "0.37.2",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-nitro-modules": "0.37.2",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.8.3"
+  },
+  "author": "Nguyễn Công Tuấn",
+  "homepage": "https://github.com/OWNER/RNPackage"
+}

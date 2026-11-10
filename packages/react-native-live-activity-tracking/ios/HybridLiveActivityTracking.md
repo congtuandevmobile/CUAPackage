@@ -1,0 +1,3 @@
+# HybridLiveActivityTracking.swift
+
+The iOS implementation of the Nitro HybridObject `LiveActivityTracking`. Thin: maps the Nitro structs to the manager's own types (`LiveActivityStartRequest`, `LiveActivityStateInput`) and each call to a `Promise`. `startActivity` runs on the main thread (ActivityKit requests must come from the foreground app) and never rejects for "not allowed": it resolves `success: false` with the reason. Before iOS 16.2 every call answers "not supported" (false / empty). `setEventListener` stores the callback and reclaims the activities that survived the last session so their events are not missed; events are delivered on the main queue. Limits: not built into an app and not run on a device.

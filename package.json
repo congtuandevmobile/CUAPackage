@@ -1,0 +1,19 @@
+{
+  "name": "rn-package",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Monorepo of generic React Native SDKs for sport apps (Nitro modules).",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "codegen": "bun run --filter '*' codegen",
+    "typecheck": "bun run --filter '*' typecheck",
+    "test": "bun run --filter '*' test"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "bun@1.2.22"
+}

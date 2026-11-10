@@ -1,0 +1,52 @@
+{
+  "name": "react-native-live-activity-tracking",
+  "version": "0.0.1-beta.1",
+  "description": "Shows a workout on the lock screen and Dynamic Island (iOS Live Activity) and as an ongoing notification (Android) while it is being recorded. Nitro module.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "scripts": {
+    "codegen": "nitrogen",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "keywords": ["react-native", "nitro", "live-activity", "dynamic-island", "ongoing-notification", "workout"],
+  "files": [
+    "src",
+    "nitrogen",
+    "nitro.json",
+    "android/build.gradle",
+    "android/fix-prefab.gradle",
+    "android/gradle.properties",
+    "android/CMakeLists.txt",
+    "android/src",
+    "ios/**/*.h",
+    "ios/**/*.m",
+    "ios/**/*.mm",
+    "ios/**/*.swift",
+    "ios/WidgetTemplate",
+    "ios/PrivacyInfo.xcprivacy",
+    "*.podspec",
+    "README.md"
+  ],
+  "license": "MIT",
+  "author": "Nguyễn Công Tuấn",
+  "homepage": "https://github.com/OWNER/RNPackage",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-nitro-modules": ">=0.37.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^19.1.0",
+    "jest": "^29.7.0",
+    "nitrogen": "0.37.2",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-nitro-modules": "0.37.2",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.8.3"
+  }
+}

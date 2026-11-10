@@ -1,0 +1,3 @@
+# HybridLiveActivityTracking.kt
+
+The Android implementation of the Nitro HybridObject `LiveActivityTracking`: the ongoing notification. Two modes chosen at start (`androidForegroundService`): own foreground service, or only post/update/cancel the notification with `androidNotificationId` (another service keeps the process alive; give it that service's notification id to replace its content). Asks `POST_NOTIFICATIONS` (Android 13+) through the React activity; refuses a location foreground service when the app is not allowed to start one (API 34+). One activity at a time: a new start replaces the old. Emits `stateChange` `active` / `ended`; there is no push token on Android. Limits: not built into an app and not run on a device.

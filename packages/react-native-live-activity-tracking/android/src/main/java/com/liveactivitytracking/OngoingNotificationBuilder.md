@@ -1,0 +1,3 @@
+# OngoingNotificationBuilder.kt
+
+Builds the ongoing workout notification: chronometer while `active` (none when paused, "paused" as sub text), pace (km/h for cycling) and distance as text, a delete intent that stops the service, a content intent for the deep link (else the launcher activity). On Android 16+ it is a promoted ongoing notification (`android.requestPromotedOngoing`, the distance as the status chip); never colorized, no custom content view. Texts and colour come from the app; the channel is created with HIGH importance (promotion needs DEFAULT or HIGH). The default small icon `ic_live_activity_tracking` is replaced by an app drawable of the same name.

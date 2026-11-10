@@ -1,0 +1,30 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "gpstracking"
+  ],
+  "ios": {
+    "iosModuleName": "NitroGpsTracking"
+  },
+  "android": {
+    "androidNamespace": [
+      "gpstracking"
+    ],
+    "androidCxxLibName": "NitroGpsTracking"
+  },
+  "autolinking": {
+    "GpsTracking": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridGpsTracking"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridGpsTracking"
+      }
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}

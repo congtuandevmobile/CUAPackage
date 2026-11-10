@@ -1,0 +1,3 @@
+# LiveActivityManager.swift
+
+Lifecycle of the workout Live Activities through ActivityKit (iOS 16.2+): `startActivity` (optionally with a push token), `updateActivity`, `endActivity` (immediate dismissal), `endAllActivities`, `reclaimExistingActivities` (takes back an activity that outlived the process), `isActivityActive`, `getPushToken`. Observes each activity's push-token and state streams and reports them through `onTokenUpdated` / `onStateChanged` (`active`, `ended`, `dismissed`, `stale`, `unknown` for a newer state). Failures are `LiveActivityError` (`CODE: message`: `NOT_SUPPORTED`, `NOT_FOUND`). A missing number in an update shows as zero. Keeps no business logic: the numbers are the app's.

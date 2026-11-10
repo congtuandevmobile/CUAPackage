@@ -1,0 +1,105 @@
+// GENERATED from the iOS 26 SDK header (HKWorkout.h): the Apple raw value of every HKWorkoutActivityType and its name.
+// Names are the ones of `HEALTH_SPORTS` in src/sports.ts: keep the two in step (a test compares them).
+// Matching on the RAW VALUE (not on the enum) keeps this file independent of the SDK's availability annotations and
+// lets a sport newer than this table travel as `("unknown", rawValue)` instead of being folded into "other".
+import HealthKit
+
+enum SportCatalog {
+    static let unknownName = "unknown"
+
+    static let names: [UInt: String] = [
+        1: "americanFootball",
+        2: "archery",
+        3: "australianFootball",
+        4: "badminton",
+        5: "baseball",
+        6: "basketball",
+        7: "bowling",
+        8: "boxing",
+        9: "climbing",
+        10: "cricket",
+        11: "crossTraining",
+        12: "curling",
+        13: "cycling",
+        14: "dance",
+        15: "danceInspiredTraining",
+        16: "elliptical",
+        17: "equestrianSports",
+        18: "fencing",
+        19: "fishing",
+        20: "functionalStrengthTraining",
+        21: "golf",
+        22: "gymnastics",
+        23: "handball",
+        24: "hiking",
+        25: "hockey",
+        26: "hunting",
+        27: "lacrosse",
+        28: "martialArts",
+        29: "mindAndBody",
+        30: "mixedMetabolicCardioTraining",
+        31: "paddleSports",
+        32: "play",
+        33: "preparationAndRecovery",
+        34: "racquetball",
+        35: "rowing",
+        36: "rugby",
+        37: "running",
+        38: "sailing",
+        39: "skatingSports",
+        40: "snowSports",
+        41: "soccer",
+        42: "softball",
+        43: "squash",
+        44: "stairClimbing",
+        45: "surfingSports",
+        46: "swimming",
+        47: "tableTennis",
+        48: "tennis",
+        49: "trackAndField",
+        50: "traditionalStrengthTraining",
+        51: "volleyball",
+        52: "walking",
+        53: "waterFitness",
+        54: "waterPolo",
+        55: "waterSports",
+        56: "wrestling",
+        57: "yoga",
+        58: "barre",
+        59: "coreTraining",
+        60: "crossCountrySkiing",
+        61: "downhillSkiing",
+        62: "flexibility",
+        63: "highIntensityIntervalTraining",
+        64: "jumpRope",
+        65: "kickboxing",
+        66: "pilates",
+        67: "snowboarding",
+        68: "stairs",
+        69: "stepTraining",
+        70: "wheelchairWalkPace",
+        71: "wheelchairRunPace",
+        72: "taiChi",
+        73: "mixedCardio",
+        74: "handCycling",
+        75: "discSports",
+        76: "fitnessGaming",
+        77: "cardioDance",
+        78: "socialDance",
+        79: "pickleball",
+        80: "cooldown",
+        82: "swimBikeRun",
+        83: "transition",
+        84: "underwaterDiving",
+        3000: "other",
+    ]
+
+    /// The catalog name of a workout activity type; "unknown" when it is newer than this table.
+    static func name(forRaw raw: UInt) -> String {
+        return names[raw] ?? unknownName
+    }
+
+    static func name(of type: HKWorkoutActivityType) -> String {
+        return name(forRaw: type.rawValue)
+    }
+}
