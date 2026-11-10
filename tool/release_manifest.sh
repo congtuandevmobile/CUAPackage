@@ -5,28 +5,23 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 all_packages() {
-  find "$repo_root/packages" -mindepth 2 -maxdepth 2 -type f -name package.json -print0 |
-    while IFS= read -r -d '' manifest; do
-      bun -e 'const p=require(process.argv[1]); process.stdout.write(p.name + "\n")' "$manifest"
-    done | sort
+  local manifest
+  for manifest in "$repo_root"/packages/*/package.json; do
+    [[ -f "$manifest" ]] || continue
+    basename "$(dirname "$manifest")"
+  done | sort
 }
 
 is_known() {
   local wanted="$1"
-  all_packages | grep -Fxq "$wanted"
+  [[ -f "$repo_root/packages/$wanted/package.json" ]]
 }
 
 manifest_for() {
   local package="$1"
-  find "$repo_root/packages" -mindepth 2 -maxdepth 2 -type f -name package.json -print0 |
-    while IFS= read -r -d '' manifest; do
-      name="$(bun -e 'const p=require(process.argv[1]); process.stdout.write(p.name)' "$manifest")"
-      if [[ "$name" == "$package" ]]; then
-        printf '%s\n' "$manifest"
-        return 0
-      fi
-    done
-  return 1
+  local manifest="$repo_root/packages/$package/package.json"
+  [[ -f "$manifest" ]] || return 1
+  printf '%s\n' "$manifest"
 }
 
 version() {
