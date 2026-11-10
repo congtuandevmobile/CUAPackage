@@ -60,7 +60,7 @@ jobs:
   create-tags:
     needs: [plan, validate]
     if: needs.plan.outputs.mode == 'tag'
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,6 +69,14 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version-file: package.json
+      - uses: actions/setup-java@v4
+        if: contains(needs.plan.outputs.packages, 'react-native-gps-tracking')
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build GPS TrackingCore XCFramework
+        if: contains(needs.plan.outputs.packages, 'react-native-gps-tracking')
+        run: tool/build_core.sh release
       - name: Create immutable package tags
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || github.token }}

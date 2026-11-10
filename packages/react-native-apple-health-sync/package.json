@@ -1,6 +1,6 @@
 {
   "name": "react-native-apple-health-sync",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "Apple HealthKit sync for React Native (Nitro module, iOS only): reads workouts, routes, laps, heart-rate/cadence/distance series and observes new workouts, with EVERY workout sport mapped by name and by a stable id.",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
