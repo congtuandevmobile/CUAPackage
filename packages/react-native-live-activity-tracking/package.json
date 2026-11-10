@@ -1,6 +1,6 @@
 {
   "name": "react-native-live-activity-tracking",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "Shows a workout on the lock screen and Dynamic Island (iOS Live Activity) and as an ongoing notification (Android) while it is being recorded. Nitro module.",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

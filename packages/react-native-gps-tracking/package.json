@@ -1,6 +1,6 @@
 {
   "name": "react-native-gps-tracking",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "Own GPS tracking engine for React Native (Nitro module): native fix collection whose distance is decided by a shared Kotlin core.",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

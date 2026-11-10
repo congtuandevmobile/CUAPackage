@@ -73,3 +73,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || github.token }}
         run: tool/create_package_tags.sh "${{ needs.plan.outputs.packages }}" "${{ github.sha }}"
+      - name: Pack SDKs and create GitHub releases
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || github.token }}
+        run: |
+          archive_dir="$RUNNER_TEMP/cua-sdk-tarballs"
+          mkdir -p "$archive_dir"
+          IFS=',' read -r -a packages <<< "${{ needs.plan.outputs.packages }}"
+          for package in "${packages[@]}"; do
+            version="$(tool/release_manifest.sh version "$package")"
+            tag="${package}_tag-${version}"
+            (cd "packages/$package" && bun pm pack --destination "$archive_dir")
+            archive="$archive_dir/${package}-${version}.tgz"
+            [[ -f "$archive" ]] || {
+              echo "Expected package archive was not created: $archive" >&2
+              ls -la "$archive_dir" >&2
+              exit 1
+            }
+            gh release create "$tag" "$archive" \
+              --title "$package $version" \
+              --generate-notes
+          done
