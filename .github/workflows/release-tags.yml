@@ -60,7 +60,8 @@ jobs:
   create-tags:
     needs: [plan, validate]
     if: needs.plan.outputs.mode == 'tag'
-    runs-on: macos-14
+    # Use the standard Intel hosted runner explicitly. Some accounts resolve macos-14 to an unavailable ARM config.
+    runs-on: macos-15-intel
     steps:
       - uses: actions/checkout@v4
         with:
